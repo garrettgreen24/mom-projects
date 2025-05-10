@@ -7,24 +7,30 @@ export default function Home() {
       <Head>
         <title>Beth’s Project Board</title>
         <meta name="description" content="Central hub for wedding planning, gardening journal, and crafts" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <main style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         padding: '2rem',
+        paddingTop: '4rem',
         minHeight: '100vh',
-        backgroundColor: '#f7f7f7',
+        backgroundColor: '#ffe4e1',
         backgroundImage: "url('/family.jpg')",
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',
       }}>
         <h1 style={{
-          fontSize: '3rem',
-          color: '#333',
-          marginBottom: '2rem'
+          fontSize: '3.5rem',
+          color: '#222',
+          marginBottom: '2rem',
+          fontFamily: 'Playfair Display, serif'
         }}>
           Beth’s Project Board
         </h1>
@@ -33,7 +39,8 @@ export default function Home() {
           gap: '2rem',
           listStyle: 'none',
           padding: 0,
-          margin: 0
+          marginTop: 'auto',
+          marginBottom: '4rem'
         }}>
           <li>
             <Link href="/wedding">
@@ -44,7 +51,8 @@ export default function Home() {
                 textDecoration: 'none',
                 color: '#333',
                 fontWeight: 'bold',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                fontFamily: 'Playfair Display, serif'
               }}>
                 Wedding Plans
               </a>
@@ -59,7 +67,8 @@ export default function Home() {
                 textDecoration: 'none',
                 color: '#333',
                 fontWeight: 'bold',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                fontFamily: 'Playfair Display, serif'
               }}>
                 Gardening Journal
               </a>
@@ -74,7 +83,8 @@ export default function Home() {
                 textDecoration: 'none',
                 color: '#333',
                 fontWeight: 'bold',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                fontFamily: 'Playfair Display, serif'
               }}>
                 Crafts & Gifts
               </a>
@@ -85,4 +95,5 @@ export default function Home() {
     </>
   )
 }
+
 
