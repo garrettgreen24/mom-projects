@@ -3,8 +3,18 @@ import Link from 'next/link'
 import { getAllEntries } from '../../lib/content'
 
 export async function getStaticProps() {
-  const entries = getAllEntries('wedding')
-  return { props: { entries } }
+  const budgetSheetId = 'YOUR_SHEET_ID'
+  const vendorSheetId = 'YOUR_VENDOR_SHEET_ID'
+  const timelineEntries = getAllEntries('wedding/timeline')
+    .sort((a, b) => new Date(a.date) - new Date(b.date))
+
+  return {
+    props: {
+      budgetSheetId,
+      vendorSheetId,
+      timelineEntries
+    }
+  }
 }
 
 export default function WeddingList({ entries }) {

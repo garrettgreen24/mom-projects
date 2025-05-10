@@ -16,6 +16,17 @@ collections:
       - { name: "date",  label: "Date",  widget: "datetime" }
       - { name: "body",  label: "Body",  widget: "markdown" }
 
+  - name: "wedding_timeline"
+    label: "Wedding Timeline"
+    folder: "content/wedding/timeline"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date",  label: "Date",  widget: "datetime" }
+      - { name: "body",  label: "Body",  widget: "markdown" }
+
+
   - name: "garden"
     label: "Gardening Journal"
     folder: "content/garden"
