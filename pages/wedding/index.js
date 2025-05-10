@@ -39,6 +39,10 @@ export default function WeddingHome() {
           <Link href="/wedding/timeline">
             <button style={styles.button}>Open Timeline Notes</button>
           </Link>
+          <h2 style={styles.sectionHeading}>Guest List</h2>
+          <Link href="/wedding/guests">
+            <button style={styles.button}>Open Guest List</button>
+          </Link>
           <h2 style={styles.sectionHeading}>Inspiration</h2>
           <p style={styles.noteText}>Coming soon</p>
         </aside>
