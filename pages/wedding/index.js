@@ -24,7 +24,7 @@ export default function WeddingHome() {
           </Link>
         </nav>
 
-        {/* Center photo */}
+        {/* Center photo, now in a shorter frame */}
         <div style={styles.photoContainer}>
           <img
             src="/gabmomphoto.jpg"
@@ -59,9 +59,10 @@ const styles = {
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
+    position: 'relative',
   },
   header: {
-    height: 100,
+    height: 50,
     backgroundColor: PINK,
   },
   titleBubble: {
@@ -109,15 +110,18 @@ const styles = {
     textAlign: 'left',
   },
   photoContainer: {
-    width: '60%',            // photo back to 60%
+    width: '60%',
+    height: 800,             // fixed height to prevent scroll
+    overflow: 'hidden',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   photo: {
-    maxWidth: '100%',
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',      // crops to fill container
     borderRadius: 8,
-    objectFit: 'cover',
   },
   noteText: {
     fontStyle: 'italic',
