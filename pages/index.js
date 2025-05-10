@@ -30,7 +30,10 @@ export default function Home() {
           fontSize: '3.5rem',
           color: '#222',
           marginBottom: '2rem',
-          fontFamily: 'Playfair Display, serif'
+          fontFamily: 'Playfair Display, serif',
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          padding: '0.5rem 1rem',
+          borderRadius: '8px'
         }}>
           Beth’s Project Board
         </h1>
@@ -95,5 +98,3 @@ export default function Home() {
     </>
   )
 }
-
-
