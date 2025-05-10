@@ -1,71 +1,122 @@
 // pages/wedding/index.js
 import Link from 'next/link'
 import React from 'react'
-import { getAllEntries } from '../../lib/content'
 
-export async function getStaticProps() {
-  const timelineEntries = getAllEntries('wedding/timeline')
-    .sort((a, b) => new Date(a.date) - new Date(b.date))
-
-  return {
-    props: {
-      timelineEntries,
-    },
-  }
-}
-
-export default function WeddingHome({ timelineEntries = [] }) {
+export default function WeddingHome() {
   return (
-    <main style={{ padding: '2rem', maxWidth: 800, margin: '0 auto' }}>
-      <h1>Wedding Plans</h1>
+    <div style={styles.page}>
+      {/* Header with title */}
+      <header style={styles.header} />
+      <div style={styles.titleBubble}>
+        <h1 style={styles.title}>Wedding Plans</h1>
+      </div>
 
-      {/* Budget & Expenses */}
-      <section style={{ marginBottom: '2rem' }}>
-        <h2>Budget & Expenses</h2>
-        <Link href="/wedding/budget">
-          <button style={buttonStyle}>Open Full Budget Sheet</button>
-        </Link>
-      </section>
+      {/* Main layout */}
+      <div style={styles.main}>
+        {/* Left links */}
+        <nav style={styles.sideNav}>
+          <h2 style={styles.sectionHeading}>Sheets</h2>
+          <Link href="/wedding/budget">
+            <button style={styles.button}>Budget & Expenses</button>
+          </Link>
+          <Link href="/wedding/vendors">
+            <button style={styles.button}>Vendor Directory</button>
+          </Link>
+        </nav>
 
-      {/* Vendor Directory */}
-      <section style={{ marginBottom: '2rem' }}>
-        <h2>Vendor Directory</h2>
-        <Link href="/wedding/vendors">
-          <button style={buttonStyle}>Open Full Vendor Sheet</button>
-        </Link>
-      </section>
+        {/* Center photo */}
+        <div style={styles.photoContainer}>
+          <img
+            src="/gabmomphoto.jpg"
+            alt="Wedding inspiration"
+            style={styles.photo}
+          />
+        </div>
 
-      {/* Notes & Timeline */}
-      <section style={{ marginBottom: '2rem' }}>
-        <h2>Notes & Timeline</h2>
-        {timelineEntries.length === 0 ? (
-          <p>No timeline notes yet. Add one via the CMS!</p>
-        ) : (
-          <ul style={{ padding: 0, listStyle: 'none' }}>
-            {timelineEntries.map(({ slug, title, date }) => (
-              <li key={slug} style={{ marginBottom: '1rem' }}>
-                <strong>{new Date(date).toLocaleDateString()}:</strong> {title}
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-
-      {/* Inspiration & Mood Boards */}
-      <section style={{ marginBottom: '2rem' }}>
-        <h2>Inspiration & Mood Boards</h2>
-        <p>Coming soon: image gallery or embedded mood boards!</p>
-      </section>
-    </main>
+        {/* Right links */}
+        <aside style={styles.sideNav}>
+          <h2 style={styles.sectionHeading}>Timeline</h2>
+          <Link href="/wedding/timeline">
+            <button style={styles.button}>Open Timeline Notes</button>
+          </Link>
+          <h2 style={styles.sectionHeading}>Inspiration</h2>
+          <p style={styles.noteText}>Coming soon</p>
+        </aside>
+      </div>
+    </div>
   )
 }
 
-// simple, reusable button style
-const buttonStyle = {
-  padding: '0.5rem 1rem',
-  background: '#fff',
-  border: '1px solid #ccc',
-  borderRadius: 4,
-  cursor: 'pointer',
-  fontSize: '1rem',
+const PINK = '#ffe4e1'
+
+const styles = {
+  page: {
+    backgroundColor: PINK,
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  header: {
+    height: 100,
+    backgroundColor: PINK,
+  },
+  titleBubble: {
+    position: 'absolute',
+    top: 16,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    backgroundColor: '#ffb6c1',
+    padding: '0.5rem 1rem',
+    borderRadius: 6,
+  },
+  title: {
+    margin: 0,
+    fontFamily: "'Playfair Display', serif",
+    fontSize: '2rem',
+    color: '#222',
+  },
+  main: {
+    flex: 1,
+    display: 'flex',
+    alignItems: 'flex-start',
+    padding: '2rem',
+  },
+  sideNav: {
+    width: '20%',
+    padding: '1rem',
+  },
+  sectionHeading: {
+    fontFamily: "'Playfair Display', serif",
+    fontSize: '1.25rem',
+    marginBottom: '1rem',
+    color: '#222',
+  },
+  button: {
+    display: 'block',
+    width: '100%',
+    padding: '0.75rem',
+    marginBottom: '1rem',
+    background: '#fff',
+    color: '#222',
+    border: '1px solid #ccc',
+    borderRadius: 4,
+    fontFamily: "'Playfair Display', serif",
+    cursor: 'pointer',
+    textAlign: 'left',
+  },
+  photoContainer: {
+    width: '60%',            // photo back to 60%
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  photo: {
+    maxWidth: '100%',
+    borderRadius: 8,
+    objectFit: 'cover',
+  },
+  noteText: {
+    fontStyle: 'italic',
+    color: '#666',
+  },
 }
